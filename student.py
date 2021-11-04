@@ -57,7 +57,11 @@ class Piggy(PiggyParent):
     ****************
     '''
     def scott(self):
-      self.deg_fwd(360)
+      for _ in range(4):
+        self.deg_fwd(360)
+        self.turn_by_deg(90)
+     
+      
 
       
     def dance(self):
