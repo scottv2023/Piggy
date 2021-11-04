@@ -58,7 +58,7 @@ class Piggy(PiggyParent):
     '''
     def scott(self):
       self.deg_fwd(360)
-      self.turn_by_deg(primary - 40, counter - -40)
+      self.right(primary - 40, counter - -40)
       self.sleep(2)
       self.stop()
 
