@@ -58,7 +58,7 @@ class Piggy(PiggyParent):
     '''
     def scott(self):
       self.fwd()
-      self.sleep(2)
+      time.sleep(2)
       self.stop()
       self.right(primary = 40, counter = -40)
       self.sleep(2)
