@@ -57,12 +57,13 @@ class Piggy(PiggyParent):
     ****************
     '''
     def scott(self):
-      self.fwd()
-      time.sleep(2)
-      self.stop()
-      self.right(primary = 40, counter = -40)
-      time.sleep(2)
-      self.stop()
+      for _ in range(4):  
+        self.fwd()
+        time.sleep(2)
+        self.stop()
+        self.right(primary = 40, counter = -40)
+        time.sleep(2)
+        self.stop()
 
 
       
