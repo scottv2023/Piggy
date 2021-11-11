@@ -56,7 +56,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def scott(self):
+    def square(self):
       for _ in range(4):  
         self.fwd()
         time.sleep(2)
@@ -65,16 +65,25 @@ class Piggy(PiggyParent):
         time.sleep(2)
         self.stop()
 
+    def vanek(self):
+      pass
 
       
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
         
-        # lower-ordered example...
-        self.right(primary=50, counter=50)
-        time.sleep(2)
-        self.stop()
+        # dance 
+      self.forward()
+      self.stop()
+      time.sleep(1)
+      self.back()
+      self.stop()
+      self.sleep()
+      self.right(primary=50, counter=50)
+      time.sleep(1)
+
+       
         
 
     def safe_to_dance(self):
