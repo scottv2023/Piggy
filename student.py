@@ -58,11 +58,11 @@ class Piggy(PiggyParent):
     ****************
     '''
     def forward(self):
-      self.fwd()
-      if self.read_distance() < 25:
-        self.stop()
-      else:
-        self.fwd()
+      while True:
+        if self.read_distance() < 25:
+          self.stop()
+        else:
+          self.fwd()
 
 
 
