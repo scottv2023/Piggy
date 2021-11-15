@@ -42,7 +42,7 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "v": ("Scott Test", self.square),
-                "w":("Forward W/Stop", self.stop)
+                "w":("Forward W/Stop", self.stop),
                 "q":("Forward W/Spin", self.spin)
                 }
         # loop and print the menu...
