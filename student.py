@@ -42,7 +42,8 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "v": ("Scott Test", self.square),
-                "w":("Forward W/Stop", self.forward)
+                "w":("Forward W/Stop", self.stop)
+                "q":("Forward W/Spin", self.spin)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -57,7 +58,18 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def forward(self):
+    def spin(self):
+      while True:
+        if self.read_distance() < 25:
+          self.stop()
+          self.right(primary = 40, counter = -40)
+          time.sleep(3)
+        else:
+          self.fwd()
+
+
+
+    def stop(self):
       while True:
         if self.read_distance() < 25:
           self.stop()
