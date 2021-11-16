@@ -61,7 +61,7 @@ class Piggy(PiggyParent):
     
     def spin(self):
       while True:
-        if self.read_distance() < 90:
+        if self.read_distance() < 180:
           self.stop()
           self.right(primary = 40, counter = -40)
           time.sleep(.5)
