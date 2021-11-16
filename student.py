@@ -42,7 +42,7 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "v": ("Scott Test", self.square),
-                "w":("Forward W/Stop", self.stop),
+                "w":("Forward W/Stop", self.stop2),
                 "q":("Forward W/Spin", self.spin)
                 }
         # loop and print the menu...
@@ -70,15 +70,12 @@ class Piggy(PiggyParent):
       
 
 
-    def stop(self):
-      pass
-      '''
+    def stop2(self):
       while True:
         if self.read_distance() < 90:
           self.stop()
         else:
           self.fwd()
-      '''
 
     def square(self):
       for _ in range(4):  
