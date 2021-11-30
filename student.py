@@ -43,13 +43,15 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "v": ("Scott Test", self.square),
                 "w":("Forward W/Stop", self.stop2),
-                "q":("Forward W/Spin", self.spin)
+                "q":("Forward W/Spin", self.spin),
+                "z":("travel", self.navigate)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
         # store the user's answer
-        ans = str.lower(input("Your selection: "))
+        ans = str.lower(input("Your 
+        selection: "))
         # activate the item selected
         menu.get(ans, [None, self.quit])[1]()
 
@@ -59,6 +61,53 @@ class Piggy(PiggyParent):
     ****************
     '''
     
+    def navigate(self):
+      while True:
+        if(self.read_distance() > 250):
+          self.fwd()
+        elif(self.read_ditance() < 250):
+          self.stop()
+          self.servo(2000)
+          time.sleep(1.5)
+          self.stop()
+
+
+          first = self.read_distance()
+          self.servo(2000)
+          time.sleep(1.5)
+          self.stop()
+
+
+          far_dist = 2000
+          second = self.read_distance()
+          self.servo(1100)
+          time.sleep(1.5)
+          self.stop()
+          if (first > far_dist):
+            self.right()
+            time.sleep(1)
+            self.stop()
+            self.fwd()
+          elif (second > far_dist):
+            self.left()
+            time.sleep(1.5)
+            self.stop()
+            self.fwd()
+            time.sleep(1.5)
+            self.right()
+            self.fwd()
+          else:
+            self.back()
+            self.choice()
+
+
+
+
+
+
+
+
+
     def spin(self):
       while True:
         if self.read_distance() < 180:
