@@ -96,13 +96,12 @@ class Piggy(PiggyParent):
             time.sleep(1.5)
             self.right()
             self.fwd()
+          
+          """"
           else:
             self.back()
-            self.choice()
-
-
-
-
+            self.travel()
+          """
 
 
 
