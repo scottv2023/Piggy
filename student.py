@@ -83,11 +83,13 @@ class Piggy(PiggyParent):
           self.servo(1100)
           time.sleep(.75)
           self.stop()
+          
           if (first > second):
             self.right()
             time.sleep(1)
             self.stop()
             self.fwd()
+            self.servo(1500)
           elif (second > first):
             self.left()
             time.sleep(.75)
@@ -96,6 +98,7 @@ class Piggy(PiggyParent):
             time.sleep(.75)
             self.right()
             self.fwd()
+            self.servo(1500)
           
           """"
           else:
