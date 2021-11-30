@@ -63,9 +63,9 @@ class Piggy(PiggyParent):
     
     def travel(self):
       while True:
-        if(self.read_distance() > 250):
+        if(self.read_distance() > 310):
           self.fwd()
-        elif(self.read_distance() < 250):
+        elif(self.read_distance() < 310):
           self.stop()
           self.servo(1500)
           time.sleep(.75)
