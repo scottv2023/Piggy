@@ -100,11 +100,12 @@ class Piggy(PiggyParent):
             self.fwd()
             self.servo(1500)
           
-          """"
+          
           else:
-            self.back()
-            self.travel()
-          """
+            self.back(.5)
+            self.read_distance()
+            
+          
 
 
 
