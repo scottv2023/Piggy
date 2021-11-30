@@ -44,7 +44,7 @@ class Piggy(PiggyParent):
                 "v": ("Scott Test", self.square),
                 "w":("Forward W/Stop", self.stop2),
                 "q":("Forward W/Spin", self.spin),
-                "z":("travel", self.navigate)
+                "z":("travel", self.travel)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -61,7 +61,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     
-    def navigate(self):
+    def travel(self):
       while True:
         if(self.read_distance() > 250):
           self.fwd()
