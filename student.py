@@ -44,7 +44,8 @@ class Piggy(PiggyParent):
                 "v": ("Scott Test", self.square),
                 "w":("Forward W/Stop", self.stop2),
                 "q":("Forward W/Spin", self.spin),
-                "z":("travel", self.travel)
+                "z":("travel", self.travel), 
+                "y": ("DistanceCheck", self.distance)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -61,26 +62,36 @@ class Piggy(PiggyParent):
     ****************
     '''
     
+    def distance(self):
+      while True:
+        if(self.read_distance() < 310):
+          self.fwd()
+        if self.read_distance() < 310):
+          self.stop()
+          self.servo(self.MIDPOINT)
+
+        
+
     def travel(self):
       while True:
         if(self.read_distance() > 310):
           self.fwd()
         elif(self.read_distance() < 310):
           self.stop()
-          self.servo(1500)
+          self.servo(self.MIDPOINT)
           time.sleep(.75)
           self.stop()
 
 
           first = self.read_distance()
-          self.servo(1900)
+          self.servo(self.MIDPOINT + 400)
           time.sleep(.75)
           self.stop()
 
 
          
           second = self.read_distance()
-          self.servo(1100)
+          self.servo(self.MIDPOINT - 400)
           time.sleep(.75)
           self.stop()
           
@@ -88,7 +99,7 @@ class Piggy(PiggyParent):
             self.right()
             time.sleep(1)
             self.stop()
-            self.servo(1500)
+            self.servo(self.MIDPOINT)
             self.fwd()
             
           elif (second > first):
@@ -98,7 +109,7 @@ class Piggy(PiggyParent):
             self.fwd()
             time.sleep(.75)
             self.right()
-            self.servo(1500)
+            self.servo(self.MIDPOINT)
             self.fwd()
             
           
