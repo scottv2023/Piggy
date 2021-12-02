@@ -83,7 +83,7 @@ class Piggy(PiggyParent):
           self.stop()
           self.servo(self.MIDPOINT)
 
-        first = self.read_distance()
+          first = self.read_distance()
           self.servo(self.MIDPOINT + 400)
           time.sleep(.75)
           self.stop()
