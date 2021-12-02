@@ -42,10 +42,11 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "v": ("Scott Test", self.square),
-                "w":("Forward W/Stop", self.stop2),
-                "q":("Forward W/Spin", self.spin),
-                "z":("travel", self.travel), 
-                "y": ("DistanceCheck", self.distance)
+                "w": ("Forward W/Stop", self.stop2),
+                "g": ("Forward W/Spin", self.spin),
+                "z": ("travel", self.travel), 
+                "y": ("DistanceCheck", self.distance),
+                "p": ("scan", self.scan)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -61,16 +62,54 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    
+    def scan(self):
+      while True:
+        self.servo(self.MIDPOINT)
+        self.fwd()
+        self.servo(self.MIDPOINT + 400)
+        self.fwd()
+        self.servo(self.MIDPOINT - 400)
+        self.fwd()
+        
+
+
+
+
     def distance(self):
       while True:
         if(self.read_distance() > 310):
           self.fwd()
-        """"
-        if self.read_distance() < 310):
+        elif self.read_distance() < 310):
           self.stop()
           self.servo(self.MIDPOINT)
-        """
+
+        first = self.read_distance()
+          self.servo(self.MIDPOINT + 400)
+          time.sleep(.75)
+          self.stop()
+
+          second = self.read_distance()
+          self.servo(self.MIDPOINT - 400)
+          time.sleep(.75)
+          self.stop()
+          
+          if (first > second):
+            self.right()
+            time.sleep(1)
+            self.stop()
+            self.servo(self.MIDPOINT)
+            self.fwd()
+            
+          elif (second > first):
+            self.left()
+            time.sleep(.75)
+            self.stop()
+            self.fwd()
+            time.sleep(.75)
+            self.right()
+            self.servo(self.MIDPOINT)
+            self.fwd()
+        
 
         
 
@@ -154,8 +193,7 @@ class Piggy(PiggyParent):
         time.sleep(2)
         self.stop()
 
-    def vanek(self):
-      pass
+
 
       
     def dance(self):
