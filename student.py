@@ -65,12 +65,14 @@ class Piggy(PiggyParent):
     def scan(self):
       while True:
         self.fwd()
+        time.sleep()
         self.servo(self.MIDPOINT)
-        self.fwd()
+        time.sleep(.5)
         self.servo(self.MIDPOINT + 400)
-        self.fwd()
+        time.sleep(.5)
         self.servo(self.MIDPOINT - 400)
-        self.fwd()
+        time.sleep(.5)
+
         
 
 
