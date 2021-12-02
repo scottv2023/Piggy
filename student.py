@@ -66,13 +66,13 @@ class Piggy(PiggyParent):
       while True:
         self.fwd()
         self.servo(self.MIDPOINT + 400)
-        time.sleep(.5)
+        time.sleep(5)
         libby1 = self.read_distance()
         self.servo(self.MIDPOINT)
-        time.sleep(.5)
+        time.sleep(5)
         libby2 = self.read_distance()
         self.servo(self.MIDPOINT - 400)
-        time.sleep(.5)
+        time.sleep(5)
         libby3 = self.read_distance()
 
         
