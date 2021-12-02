@@ -64,6 +64,7 @@ class Piggy(PiggyParent):
     '''
     def scan(self):
       while True:
+        self.fwd()
         self.servo(self.MIDPOINT)
         self.fwd()
         self.servo(self.MIDPOINT + 400)
