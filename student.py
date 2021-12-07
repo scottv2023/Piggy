@@ -78,7 +78,7 @@ class Piggy(PiggyParent):
           libby3 = self.read_distance()
 
 
-          elif(self.read_distance() < 310):
+        elif(self.read_distance() < 310):
             self.stop()
       
 
