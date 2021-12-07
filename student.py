@@ -65,8 +65,8 @@ class Piggy(PiggyParent):
     def scan(self):
       while True:
 
-        self.fwd()
-        while True:
+          self.fwd()
+        
           self.servo(self.MIDPOINT + 400)
           time.sleep(.5)
           libby1 = self.read_distance()
@@ -78,8 +78,7 @@ class Piggy(PiggyParent):
           libby3 = self.read_distance()
 
 
-        elif(self.read_distance() < 310):
-            self.stop()
+      
       
 
 
