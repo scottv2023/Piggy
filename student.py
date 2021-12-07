@@ -75,10 +75,17 @@ class Piggy(PiggyParent):
         self.servo(self.MIDPOINT - 400)
         time.sleep(5)
         libby3 = self.read_distance()
+
+        self.libby1()
+        self.libby2()
+        self.libby3()
+
+    
         
 
-        
+      
 
+        
 
 
 
