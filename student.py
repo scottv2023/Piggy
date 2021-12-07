@@ -77,7 +77,7 @@ class Piggy(PiggyParent):
           time.sleep(.5)
           libby3 = self.read_distance()
 
-          if(libby2 > 310):
+          if(libby2 < 310):
             self.stop()
 
 
