@@ -89,53 +89,52 @@ class Piggy(PiggyParent):
             self.fwd()
           
           libby2 = self.read_distance()
-            self.servo(self.MIDPOINT - 400)
+          self.servo(self.MIDPOINT - 400)
+          time.sleep(.25)
+          if(libby2 < 310):
+            self.stop()
+            self.servo(self.MIDPOINT + 400)
+    
             time.sleep(.25)
-            if(libby2 < 310):
-              self.stop()
-              self.servo(self.MIDPOINT + 400)
-              time.sleep(.25)
+            self.stop()
+            self.servo(self.MIDPOINT)
 
+            first = self.read_distance()
+            self.servo(self.MIDPOINT + 400)
+            time.sleep(.75)
+            self.stop()
 
+            second = self.read_distance()
+            self.servo(self.MIDPOINT - 400)
+            time.sleep(.75)
+            self.stop()
+              
+            if (first > second):
+              self.right()
+              time.sleep(1)
               self.stop()
               self.servo(self.MIDPOINT)
-
-              first = self.read_distance()
-              self.servo(self.MIDPOINT + 400)
-              time.sleep(.75)
-              self.stop()
-
-              second = self.read_distance()
-              self.servo(self.MIDPOINT - 400)
-              time.sleep(.75)
-              self.stop()
-              
-              if (first > second):
-                self.right()
-                time.sleep(1)
-                self.stop()
-                self.servo(self.MIDPOINT)
-                self.fwd()
+              self.fwd()
                 
-              elif (second > first):
-                self.left()
-                time.sleep(.75)
-                self.stop()
-                self.fwd()
-                time.sleep(.75)
-                self.right()
-                self.servo(self.MIDPOINT)
-                self.fwd()
+            elif (second > first):
+              self.left()
+              time.sleep(.75)
+              self.stop()
+              self.fwd()
+              time.sleep(.75)
+              self.right()
+              self.servo(self.MIDPOINT)
+              self.fwd()
             
           libby3 = self.read_distance()
 
-            if(libby3 < 310):
-              self.stop()
-              self.servo(self.MIDPOINT + 400)
-              time.sleep(.25)
-              self.left(primary=90, counter=60)
-              time.sleep(1.2)
-              self.right(primary=90, counter=60)
+          if(libby3 < 310):
+            self.stop()
+            self.servo(self.MIDPOINT + 400)
+            time.sleep(.25)
+            self.left(primary=90, counter=60)
+            time.sleep(1.2)
+            self.right(primary=90, counter=60)
 
 
          
