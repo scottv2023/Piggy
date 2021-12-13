@@ -139,14 +139,14 @@ class Piggy(PiggyParent):
             time.sleep(.25)
 
             if(libby3 < 310):
-            self.stop()
-            self.servo(self.MIDPOINT)
-            time.sleep(.25)
-            if (self.read_distance > 310):
-              self.swerveleft()
+              self.stop()
+              self.servo(self.MIDPOINT)
+              time.sleep(.25)
+              if (self.read_distance > 310):
+                self.swerveleft()
 
-            else:
-              self.distance()
+              else:
+                self.distance()
 
 
 
