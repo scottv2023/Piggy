@@ -83,6 +83,19 @@ class Piggy(PiggyParent):
 
 
 
+    def swerveright(self):
+              self.right(primary=90, counter=70)
+              time.sleep(1)
+              self.left(primary=90, counter=45)
+              time.sleep(1)
+              self.fwd()
+    
+    def swerveleft(self):
+              self.left(primary=90, counter=70)
+              time.sleep(1)
+              self.left(primary=90, counter=45)
+              time.sleep(1)
+              self.fwd()
 
     def scan(self):      
       while True:
@@ -97,69 +110,47 @@ class Piggy(PiggyParent):
 
           if(libby1 < 310):
             self.stop()
-            self.servo(self.MIDPOINT + 400)
+            self.servo(self.MIDPOINT)
             time.sleep(.25)
-            self.right(primary=90, counter=70)
-            time.sleep(1)
-            self.left(primary=90, counter=45)
-            time.sleep(1)
-            self.fwd()
+            if (self.read_distance > 310):
+              self.swerveright()
+
+            else:
+              self.distance()
+
+
           
-          libby2 = self.read_distance()
           self.servo(self.MIDPOINT - 400)
           time.sleep(.25)
-          if(libby2 < 310):
-            self.stop()
-            self.servo(self.MIDPOINT + 400)
-            time.sleep(.25)
-            self.stop()
-            self.servo(self.MIDPOINT)
+          self.distance()
+          
 
-            first = self.read_distance()
-            self.servo(self.MIDPOINT + 400)
-            time.sleep(.75)
-            self.stop()
-
-            second = self.read_distance()
-            self.servo(self.MIDPOINT - 400)
-            time.sleep(.75)
-            self.stop()
-              
-            if (first > second):
-              self.servo(self.MIDPOINT)
-              self.right()
-              time.sleep(1)
-              self.stop()
-              self.servo(self.MIDPOINT)
-              self.fwd()
-                
-            elif (second > first):
-              self.servo(self.MIDPOINT)
-              self.left()
-              time.sleep(.75)
-              self.stop()
-              self.fwd()
-              time.sleep(.75)
-              self.right()
-              self.servo(self.MIDPOINT)
-              self.fwd()
+            
             
           libby3 = self.read_distance()
 
           if(libby3 < 310):
 
             self.stop()
-            self.servo(self.MIDPOINT + 400)
+            self.servo(self.MIDPOINT)
             time.sleep(.25)
-            self.left(primary=90, counter=70)
-            time.sleep(1.2)
-            self.right(primary=45, counter=90)
+            libby3 = self.read_distance()
+            self.servo(self.MIDPOINT)
+            time.sleep(.25)
 
+            if(libby3 < 310):
+            self.stop()
+            self.servo(self.MIDPOINT)
+            time.sleep(.25)
+            if (self.read_distance > 310):
+              self.swerveleft()
+
+            else:
+              self.distance()
 
 
 
     def distance(self):
-      while True:
         if(self.read_distance() > 310):
           self.fwd()
         elif(self.read_distance() < 310):
