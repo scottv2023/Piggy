@@ -104,6 +104,7 @@ class Piggy(PiggyParent):
             self.stop()
               
             if (first > second):
+              self.servo(self.MIDPOINT)
               self.right()
               time.sleep(1)
               self.stop()
@@ -111,6 +112,7 @@ class Piggy(PiggyParent):
               self.fwd()
                 
             elif (second > first):
+              self.servo(self.MIDPOINT)
               self.left()
               time.sleep(.75)
               self.stop()
