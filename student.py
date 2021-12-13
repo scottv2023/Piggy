@@ -46,8 +46,8 @@ class Piggy(PiggyParent):
                 "g": ("Forward W/Spin", self.spin),
                 "z": ("travel", self.travel), 
                 "y": ("DistanceCheck", self.distance),
-                "p": ("scan", self.scan),
-                "m": ("maze", self.maze)
+                "p": ("scan", self.scan)
+                #"m": ("maze", self.maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
