@@ -112,7 +112,7 @@ class Piggy(PiggyParent):
             self.stop()
             self.servo(self.MIDPOINT)
             time.sleep(.25)
-            if (self.read_distance > 310):
+            if (self.read_distance() > 310):
               self.swerveright()
 
             else:
@@ -130,23 +130,14 @@ class Piggy(PiggyParent):
           libby3 = self.read_distance()
 
           if(libby3 < 310):
-
             self.stop()
             self.servo(self.MIDPOINT)
             time.sleep(.25)
-            libby3 = self.read_distance()
-            self.servo(self.MIDPOINT)
-            time.sleep(.25)
+            if (self.read_distance() > 310):
+              self.swerveleft()
 
-            if(libby3 < 310):
-              self.stop()
-              self.servo(self.MIDPOINT)
-              time.sleep(.25)
-              if (self.read_distance > 310):
-                self.swerveleft()
-
-              else:
-                self.distance()
+            else:
+              self.distance()
 
 
 
