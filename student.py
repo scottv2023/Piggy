@@ -63,7 +63,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-"""
+    """
     def maze(self):
       while True: 
         self.fwd()
@@ -79,7 +79,7 @@ class Piggy(PiggyParent):
 
           #incase of deadend
           if 
-"""
+      """
 
 
 
