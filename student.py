@@ -105,8 +105,7 @@ class Piggy(PiggyParent):
           self.servo(self.MIDPOINT + 400)
           time.sleep(.25)
           libby1 = self.read_distance()
-          self.servo(self.MIDPOINT)
-          time.sleep(.25)
+
 
           if(libby1 < 310):
             self.stop()
@@ -122,11 +121,6 @@ class Piggy(PiggyParent):
           
           self.servo(self.MIDPOINT - 400)
           time.sleep(.25)
-          self.distance()
-          
-
-            
-            
           libby3 = self.read_distance()
 
           if(libby3 < 310):
