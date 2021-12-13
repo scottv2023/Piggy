@@ -79,7 +79,7 @@ class Piggy(PiggyParent):
             time.sleep(.25)
             self.right(primary=90, counter=70)
             time.sleep(1.2)
-            self.left(primary=90, counter=50)
+            self.left(primary=90, counter=45)
             time.sleep(1)
             self.fwd()
           
@@ -128,9 +128,9 @@ class Piggy(PiggyParent):
             self.stop()
             self.servo(self.MIDPOINT + 400)
             time.sleep(.25)
-            self.left(primary=90, counter=60)
+            self.left(primary=90, counter=70)
             time.sleep(1.2)
-            self.right(primary=90, counter=60)
+            self.right(primary=45, counter=90)
 
 
 
