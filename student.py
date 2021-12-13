@@ -93,7 +93,7 @@ class Piggy(PiggyParent):
     def swerveleft(self):
               self.left(primary=90, counter=70)
               time.sleep(1)
-              self.left(primary=90, counter=45)
+              self.right(primary=90, counter=45)
               time.sleep(1)
               self.fwd()
 
