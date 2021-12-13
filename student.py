@@ -62,12 +62,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def scan(self):
-      
-      
-      
-      
-      
+    def scan(self):      
       while True:
 
           self.fwd()
@@ -94,7 +89,6 @@ class Piggy(PiggyParent):
           if(libby2 < 310):
             self.stop()
             self.servo(self.MIDPOINT + 400)
-    
             time.sleep(.25)
             self.stop()
             self.servo(self.MIDPOINT)
@@ -136,8 +130,6 @@ class Piggy(PiggyParent):
             time.sleep(1.2)
             self.right(primary=90, counter=60)
 
-
-         
 
 
 
