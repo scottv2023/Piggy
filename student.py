@@ -46,8 +46,8 @@ class Piggy(PiggyParent):
                 "g": ("Forward W/Spin", self.spin),
                 "z": ("travel", self.travel), 
                 "y": ("DistanceCheck", self.distance),
-                "p": ("scan", self.scan)
-                #"m": ("maze", self.maze)
+                "p": ("scan", self.scan),
+                "m": ("maze", self.maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -63,25 +63,49 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    """
+    
     def maze(self):
       while True: 
         self.fwd()
+        if(self.read_distance()<200):
+          self.stop()
+          self.servo(self.MIDPOINT -400)
+          time.sleep(1)
+          self.stop()
+          if(self.read_distance()<200):
+            self.left(primary=90, counter=-90)
+            time.sleep(.5)
+            self.stop()
+          elif (self.read_distance() > 200):
+            self.right(primary=90, counter=-90)
+            time.sleep(.5)
+            self.stop()
+
+        
+        """
         self.servo(self.MIDPOINT)
         forward = self.read_distance()
 
-        if (forward > 350):
+        if (forward < 350):
           self.stop()
           self.servo(self.MIDPOINT + 400)
           right = self.read_distance()
           self.servo(self.midpoint - 400)
           left = self.read_distance()
 
+          if (right > 350)
+          
+          
+          
+          
           #incase of deadend
-          if 
-      """
+          if (left < 350, right < 350):
+            self.left()
+            time.sleep(1.5)
+            self.fwd()
+          """
 
-
+          
 
     def swerveright(self):
               self.right(primary=90, counter=70)
